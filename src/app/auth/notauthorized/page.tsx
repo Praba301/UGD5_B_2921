@@ -10,7 +10,7 @@ export default function NotAuthorized() {
         <div className="flex items-center justify-center min-h-screen">
             <div className="bg-white rounded-xl shadow-lg p-8 text-center max-w-sm w-full">
                 <Image
-                    src="/notlogin.png"
+                    src="/notlogin.jpg"
                     alt="Not Authorized"
                     width={200}
                     height={200}
