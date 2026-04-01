@@ -99,7 +99,7 @@ const LoginPage = () => {
         }
 
         toast.success('Login Berhasil!', { position: 'top-right' });
-        localStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('isLoggedIn', 'true');
         router.push('/home');
     };
 

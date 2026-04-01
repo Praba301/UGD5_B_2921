@@ -8,7 +8,7 @@ export default function Home() {
     const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
         if (!isLoggedIn || isLoggedIn !== 'true') {
             router.replace('/auth/notauthorized');
         } else {
