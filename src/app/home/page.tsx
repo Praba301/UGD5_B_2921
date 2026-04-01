@@ -1,17 +1,34 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Game1 from "../../components/Game1";
 
 export default function Home() {
     const router = useRouter();
+    const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
         const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (!isLoggedIn) {
+        if (!isLoggedIn || isLoggedIn !== 'true') {
             router.replace('/auth/notauthorized');
+        } else {
+            setIsAuthorized(true);
         }
     }, [router]);
+
+    if (!isAuthorized) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                background: 'linear-gradient(135deg, #0a0a1a 0%, #0d1b2a 50%, #0a1628 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                <div style={{ color: '#94a3b8', fontSize: '1rem' }}>Memuat...</div>
+            </div>
+        );
+    }
 
     return (
         <div style={{
